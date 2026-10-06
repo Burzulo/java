@@ -4,7 +4,7 @@
 
 ## ✧ Fundamentos y Java Esencial
 
-- **Lógica de Programación y Algoritmos** [⇒](./..)
+- **Lógica de Programación y Algoritmos** [](./..)
   - ❌ Descomposición de problemas
   - ❌ Ejercicios: promedio, par/impar, ordenación
 
@@ -13,47 +13,47 @@
   - Ciclo de vida del código: Compilación (`javac`) vs. Ejecución (`java`)
   - ❌ Instalación y verificación del JDK
   - ⚠️ Configuración del IDE: IntelliJ IDEA y sus atajos
-  - ❌ Inspección de código: Debugging básico
+  - Inspección de código: Debugging básico
 
-- **Sintaxis Básica de Java** [⇒](./..)
+- ❌ **Sintaxis Básica de Java** [](./..)
   - Estructura mínima: `class`, método `main` (`public static void main(String[] args)`)
   - Convenciones de nomenclatura (`camelCase`, `PascalCase`, `UPPER_SNAKE_CASE`)
   - Comentarios
 
-- **Tipos de Datos y Variables** [⇒](./..)
+- ❌ **Tipos de Datos y Variables** [](./..)
   - Tipos primitivos (`int`, `double`, `boolean`, `char`) y de referencia (`String`)
   - Declaración, inicialización y ámbito (*scope*)
   - Constantes: Uso de la palabra clave `final`
   - Conversión de tipos (*Casting* implícito y explícito)
 
-- **Entrada/Salida Estándar (I/O)** [⇒](./..)
+- ❌ **Entrada/Salida Estándar (I/O)** [](./..)
   - Uso de la clase `Scanner`
   - Salida de datos formateada: `System.out.println` y `System.out.printf`
 
-- **Estructuras de Control** [⇒](./..)
-  - Condicionales: `if`, `else if`, `else`, `switch`
+- **Estructuras de Control** [⇒](./fundamentos-java-esencial/estructuras-de-control.md)
+  - Condicionales: `if`, `else if`, `switch`
   - Bucles: `for`, `while`, `do-while`
-  - Transferencia de control: `break`, `continue` y `return`
+  - Transferencia de control: `break`, `continue`, `return`
 
-- **Métodos y Alcance** [⇒](./..)
+- ❌ **Métodos y Alcance** [](./..)
   - Declaración y firma de métodos (`static`, tipo de retorno y nombre)
   - Paso de parámetros y uso de la sentencia `return`
   - Sobrecarga de métodos (*Overloading*)
   - Ámbito de variables (*Scope*): Variables locales vs. Atributos de clase
 
-- **Arrays** [⇒](./..)
+- ❌ **Arrays** [](./..)
   - Declaración, creación con `new` e inicialización de índices
   - Recorrido: Bucle `for` tradicional y bucle `for-each`
   - Algoritmos clásicos: Búsqueda lineal y ordenación manual
   - Inspección de datos: Uso de `Arrays.toString()` para *debugging*
 
-- **Strings y StringBuilder** [⇒](./..)
+- ❌ **Strings y StringBuilder** [](./..)
   - Métodos indispensables de `String` (`length()`, `charAt()`, `substring()`, `toLowerCase()`, etc.)
   - Comparación de texto: Diferencia entre `==` y `.equals()` / `.equalsIgnoreCase()`
   - Concepto de inmutabilidad en cadenas de texto
   - Construcción eficiente de texto mediante `StringBuilder`
 
-- **Excepciones** [⇒](./..)
+- ❌ **Excepciones** [](./..)
   - Jerarquía de errores: `Throwable`, `Error`, `Exception`
   - Tipos de Excepciones: Checked vs Unchecked
   - Bloques de control: `try`, `catch`, `finally`
