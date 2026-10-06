@@ -31,7 +31,7 @@
 <br>
 
 README link tema [⇒](....)
-
+🔅❌ ⚠️
 <br>
 
 ### → FLECHAS

@@ -2,22 +2,18 @@
 
 <br>
 
-- [Fundamentos y Java Esencial](...)  🚧 en CONSTRUCCION !!!!
-
-<br>
-
 ## ✧ Fundamentos y Java Esencial
 
 - **Lógica de Programación y Algoritmos** [⇒](./..)
   - ❌ Descomposición de problemas
   - ❌ Ejercicios: promedio, par/impar, ordenación
 
-- **Configuración del Entorno** [⇒](./..)
+- **Configuración del Entorno** [⇒](./fundamentos-java-esencial/entornos.md)
   - Arquitectura Java: Diferencias y rol de la **JVM**, **JRE** y **JDK**
   - Ciclo de vida del código: Compilación (`javac`) vs. Ejecución (`java`)
-  - Instalación y verificación del JDK
-  - Configuración del IDE: IntelliJ IDEA y sus atajos
-  - Inspección de código: Debugging básico (breakpoints)
+  - ❌ Instalación y verificación del JDK
+  - ⚠️ Configuración del IDE: IntelliJ IDEA y sus atajos
+  - ❌ Inspección de código: Debugging básico
 
 - **Sintaxis Básica de Java** [⇒](./..)
   - Estructura mínima: `class`, método `main` (`public static void main(String[] args)`)
@@ -77,16 +73,6 @@ GitHub: creación de repositorios, pull requests, clonación
 
 
 --- 
-
-## ✧ Entornos de Desarrollo
-
-- **IntelliJ IDEA** [⇒](./entorno-desarrollo/id-intellij.md)
-  - Atajos de teclado
-
-- **Eclipse** [⇒](./entorno-desarrollo/id-eclipse.md)
-  - Atajos de teclado
-
-<br>
 
 ## ✧ Java Standard Edition
 

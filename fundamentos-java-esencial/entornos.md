@@ -1,25 +1,28 @@
 
-# 📌 Configuracion del Entorno
+# 📌 Configuración del entorno
 
 <br>
 
-- [📌 Configuracion del Entorno](#-configuracion-del-entorno)
+- [📌 Configuración del entorno](#-configuración-del-entorno)
   - [📂 Arquitectura del ecosistema Java](#-arquitectura-del-ecosistema-java)
   - [📂 Ciclo de Vida: compilación vs. ejecución](#-ciclo-de-vida-compilación-vs-ejecución)
     - [🔅 bytecode](#-bytecode)
-  - [📂 Instalación y verificación del JDK](#-instalación-y-verificación-del-jdk)
-  - [📂 Configuración del IDE](#-configuración-del-ide)
-    - [IntelliJ IDEA](#intellij-idea)
-  - [📂 Estructura Básica de un Programa Java](#-estructura-básica-de-un-programa-java)
-    - [⇒ Análisis de la Firma](#-análisis-de-la-firma)
+  - [📂 ❌ Instalación y verificación del JDK](#--instalación-y-verificación-del-jdk)
+  - [📂 ❌ Configuración del IDE \[IntelliJ IDEA\]](#--configuración-del-ide-intellij-idea)
+    - [▫️ Atajos del teclado](#️-atajos-del-teclado)
+  - [📂 Inspección de código: Debugging básico](#-inspección-de-código-debugging-básico)
+    - [▫️ Comandos principales](#️-comandos-principales)
+    - [▫️ Inspección de Memoria y Pila de Llamadas](#️-inspección-de-memoria-y-pila-de-llamadas)
+
+<br>
 
 ## 📂 Arquitectura del ecosistema Java
 
 Para entender Java, hay que diferenciar los tres componentes principales que permiten compilar, ejecutar y desarrollar aplicaciones.  
 
-- ### JVM (Java Virtual Machine)
+- ### JVM
 
-  La **Máquina Virtual de Java (JVM)** es el componente central y clave de la **portabilidad** de Java.
+  La **Java Virtual Machine** es el componente central y clave de la **portabilidad** de Java.
 
   Su propósito es ser un programa que **ejecuta el bytecode** generado por el compilador de Java. En lugar de compilar el código fuente directamente al lenguaje nativo de la máquina, el compilador Java (`javac`) lo traduce a este bytecode genérico.
 
@@ -27,13 +30,13 @@ Para entender Java, hay que diferenciar los tres componentes principales que per
 
 - ### JRE (Java Runtime Environment)
 
-  El **Entorno de Ejecución de Java (JRE)** es la infraestructura mínima requerida para **correr o ejecutar** cualquier programa Java ya compilado. Está diseñado exclusivamente para la fase de consumo o uso de la aplicación por parte de un usuario final.
+  El **Entorno de Ejecución de Java** es la infraestructura mínima requerida para **correr o ejecutar** cualquier programa Java ya compilado. Está diseñado exclusivamente para la fase de consumo o uso de la aplicación por parte de un usuario final.
 
   El JRE se compone de dos partes esenciales. La primera es la **JVM**, y la segunda son las **Librerías de Clases Centrales** de Java (los archivos `.jar` y la API central), que contienen todo el código preescrito que su programa utiliza, como las clases para manipular texto, colecciones, y otros elementos básicos.
 
-- ### JDK (Java Development Kit)
+- ### JDK
 
-  El **Kit de Desarrollo de Java (JDK)** representa la **suite completa de software** ofrecida por Oracle y está diseñado específicamente para el **desarrollo** de software Java. El JDK proporciona todas las herramientas y utilidades que un ingeniero de sistemas o desarrollador necesita para escribir, compilar, depurar y ejecutar su propio código.
+  El **Java Development Kit** representa la **suite completa de software** ofrecida por Oracle y está diseñado específicamente para el **desarrollo** de software Java. El JDK proporciona todas las herramientas y utilidades que un ingeniero de sistemas o desarrollador necesita para escribir, compilar, depurar y ejecutar su propio código.
 
   El JDK es la colección de todo lo necesario para la plataforma Java. Incluye el **JRE** completo (JVM + librerías centrales) y añade herramientas de desarrollo cruciales. Entre estas herramientas clave se encuentra **`javac`**, el compilador de Java que transforma el código fuente (`.java`) en *bytecode* ejecutable (`.class`).  
 
@@ -78,82 +81,96 @@ Java utiliza un proceso de dos pasos: **compilación** y **ejecución**. Cuando 
 
   <br>
 
-## 📂 Instalación y verificación del JDK
+## 📂 ❌ Instalación y verificación del JDK
 
 ... 
 
   <br>
 
-## 📂 Configuración del IDE
+## 📂 ❌ Configuración del IDE [IntelliJ IDEA]
 
-### IntelliJ IDEA
+### ▫️ Atajos del teclado
 
-... 
+<br>
 
-  <br>
+- MOVER una LINEA DE CODIGO
 
-  <br>
+  > **Shift + Alt + ↑ ↓**  
+  > Posicionarse sobre la linea que se quiera mover, presionar `Shift` + `Alt` y mover con las flechas del teclado la posicion deseada
 
+<br>
 
-  <br>
+- CAMBIAR nombre de Variable en TODO el archivo
 
+  > **Shift + F6**  
+  > Posicionarse sobre la variable a cambiar, presionar `Shift`+ `F6`y elegir el nombre que se desee. Al cambiar la varible lo hara en todo el documento donde esta se encuentre
 
+<br>
 
+—------ **PROBAR !!!!!!!!!!!!** --------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-  ---- 
-
-## 📂 Estructura Básica de un Programa Java
-
-Para que cualquier código Java sea funcional, debe estar organizado dentro de una estructura jerárquica que define el punto de inicio del programa y el alcance de sus instrucciones.
-  
-- ### Definición de la Clase (`class`)
-  
-  El primer y más fundamental requisito en Java es que todo el código ejecutable debe residir dentro de una clase. La clase actúa como el contenedor lógico del programa, encapsulando tanto los datos (atributos) como el comportamiento (métodos).
+- Escribir *`sysout`* y presionar *`Crtl + Space`*
 
   ````java
-  public class NombreDeLaClase {
-      // Todo el código va aquí dentro
-  }
+  System.out.println();
   ````
 
-- ### El Bloque Principal (`main`)
+<br>
 
-  El método `main` es el **punto de entrada** oficial del programa. Una vez que la estructura de la clase está definida, necesitamos un punto de inicio para la ejecución. Este rol lo cumple el método ``main``, el cual es buscado y llamado directamente por la JVM cuando se lanza el programa.
+| | | |
+|---:|:---:|:---|
+| *Ctrl + Shift + F* | - | Formatea el código (tabulaciones, saltos de líneas …) |  
+| *Ctrl + Shift + C* | - | Comentar-Descomentar con // las líneas seleccionadas |
+| *Alt + Shift + S* | - | Generar Getters and Setters AUTOMATICOS |
+| *Ctrl + Alt + ↑* | - | Duplica la línea actual en la línea línea superior |
+| *Ctrl + Alt + ↓* | - | Duplica la línea actual en la línea línea inferior |
+| *Alt + ↑* | - | Intercambia la línea actual con la línea superior |
+| *Alt + ↓* | - | Intercambia la línea actual con la línea inferior |
+| *Ctrl + D* | - | Elimina la línea actual (en la que se encuentra el cursor) |
+| *Ctrl + Z* | - | Deshacer edición |
+| *Ctrl + Y* | - | Rehacer edición |
+| *Ctrl + L* | - | Ir a la línea número («introducir número») |
+| *Ctrl + M* | - | Maximizar-Minimizar el panel activo |
+| *Ctrl + S* | - | Guarda cambios del fichero |
+| *Ctrl + Shift + P* | - | Con el cursor en un comienzo o fin de llave o paréntesis, lleva al otro extremo |
+| *Ctrl + Shift + L* | - | Muestra todos los atajos del teclado |
+| *Ctrl + Shift + X* | - | Convierte las letras a mayúsculas (del texto seleccionado) |
+| *Ctrl + Shift + Y* | - | Convierte las letras a minúsculas (del texto seleccionado) |
+|  |  |  |
 
-  La firma de este método es estricta y mandatoria para que la JVM pueda reconocerlo y utilizarlo:
+<br>
 
-  ```java
-  public static void main(String[] args) {
-      // Las instrucciones del programa comienzan aquí
-  }
-  ```
+## 📂 Inspección de código: Debugging básico
 
-  > 💡 **NOTA**  
-  > Dentro de ``main`` se coloca el código que se ejecuta al arrancar la aplicación: crear objetos, llamar métodos, inicializar recursos o simplemente ejecutar instrucciones simples para empezar.
+El **debugger** o depurador es una herramienta integrada en el IDE que permite congelar la ejecución de la JVM y observar exactamente qué hay dentro de las variables en cada instante, sin modificar el código fuente. 
 
-  ### ⇒ Análisis de la Firma
+Este actúa como una "lupa de alta precisión". Permite **pausar la ejecución del programa en tiempo real** y examinar la memoria sin alterar el código fuente
 
-  - ``public`` indica visibilidad. Significa que la JVM (u otros componentes externos) pueden ver y llamar a este método..  
+<br>
 
-  - ``static`` significa que el método pertenece a la clase, no a una instancia. La JVM no necesita crear un objeto de la clase para llamar a ``main``; lo invoca directamente sobre la clase.
+> [!NOTE]  
+> #### **breakpoint**  
+> Es una marca que se coloca en una línea de código específica. Cuando la JVM ejecuta el programa en **Modo Debug**, la ejecución se detiene justo **antes** de procesar esa línea. Esto permite pausar la aplicación e inspeccionar el estado exacto de las variables en ese instante.
 
-  - ``void`` es el tipo de retorno del método. Indica que main **no devuelve ningún valor** a quien lo llama.
+<br>
 
-  - ``main`` es simplemente el nombre del método. Es la convención que la JVM reconoce como arranque.
+### ▫️ Comandos principales
 
-  - ``String[] args`` es la lista de parámetros que recibe ``main``. Es un arreglo (lista) de cadenas de texto. Permite recibir argumentos desde la línea de comandos cuando se ejecuta la aplicación.
+Una vez que el programa se detiene en un *breakpoint*, se puede controlar el flujo de ejecución línea por línea utilizando cuatro comandos universales:
 
-- ### Bloques de Código y Llaves (`{}`)
-  
-  En Java, las llaves (``{}``) son fundamentales, ya que definen los **bloques de código** y establecen el **alcance** (scope) de las variables y las instrucciones.  
+| Comando | Tecla habitual (IntelliJ) | Descripción | ¿Cuándo usarlo? |
+|:-------:|:-------------------------:|-------------|-------------------|
+| **Step Over** | `F8` | Ejecuta la línea actual y avanza a la siguiente línea del mismo método sin entrar en llamadas a otras funciones | Para avanzar secuencialmente observando cómo cambian las variables |
+| **Step Into** | `F7` | Ingresa al interior del método que se está invocando en la línea actual | Cuando se sospecha que el error está dentro de una función propia |
+| **Step Out** | `Shift+F8` | Ejecuta el resto del método actual y regresa al método llamador | Cuando se termino de revisar un método y se quiere volver arriba |
+| **Resume** | `F9` | Reanuda la ejecución normal del programa hasta encontrar el siguiente *breakpoint* o finalizar | Para saltar iteraciones de bucles o avanzar a la siguiente sección crítica |
 
-  Todo cuerpo de clase, método, o estructura de control de flujo (como ``if``, ``for``, ``while``) debe estar delimitado por estas llaves. Las instrucciones dentro de un bloque se ejecutan secuencialmente, y las variables declaradas dentro de ese bloque solo existen hasta que el programa sale de él. Esto ayuda a mantener el código organizado y evita conflictos de nombres.
+<br>
+
+### ▫️ Inspección de Memoria y Pila de Llamadas
+
+Cuando la ejecución está pausada, el IDE habilita dos paneles principales:
+
+  1. **Panel de Variables (Scope)**: Muestra el nombre, tipo y valor actual de todas las variables en el ámbito local y de clase.
+
+  2. **Pila de Llamadas (Call Stack)**: Muestra el historial ordenado de métodos que se fueron invocando hasta llegar a la línea actual. Esto te permite rastrear "el camino" exacto que siguió el programa.
