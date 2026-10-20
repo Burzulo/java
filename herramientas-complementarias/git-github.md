@@ -4,6 +4,7 @@
 
 - [Diferencia: Git vs GitHub](#-diferencia-entre-git-y-github)
 - [Configuración inicial](#-configuración-inicial)
+- [Inicializar el repositorio](#-inicializar-el-repositorio)
 
 <br>
 
@@ -63,16 +64,13 @@ Para ubicarnos en la carpeta e inicializar el repositorio hay dos opciones princ
 
 <br>
 
-Una vez que la terminal esté ubicada dentro de la carpeta elegida, ejecutá:
+Una vez que la terminal esté ubicada dentro de la carpeta elegida, ejecutar `git init`
+<br>
 
-```bash
-git init
-```
+> [!NOTE]
+> Este comando creará la carpeta oculta `.git` e inicializará el repositorio local de forma correcta
 
-  Este comando creará la carpeta oculta `.git` e inicializará el repositorio local de forma correcta
-
-
-
+<br>
 
 ## 📂 3
 
