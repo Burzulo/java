@@ -1,22 +1,94 @@
+# 📌 Git / GitHub
 
-&nbsp;
-## **1**. Configuración inicial
+<br>
 
-Tras instalar Git en el sistema, se deben hacer algunas cosas para personalizar el entorno. Es necesario hacer estas cosas solamente una vez en la computadora LOCAL y se mantendrán entre actualizaciones.<br/>  
-> Se pueden cambiar en cualquier momento volviendo a ejecutar los comandos correspondientes.
+- [Diferencia: Git vs GitHub](#-diferencia-entre-git-y-github)
+- [Configuración inicial](#-configuración-inicial)
 
-&nbsp;
-- `$ git config` -- permite obtener y establecer variables de configuración que controlan el aspecto y funcionamiento de Git.
+<br>
 
-- `$ git config --global user.name "Nombre"` -- configura el nombre de usuario globalmente.
+## 📂 Diferencia entre Git y GitHub
 
-- `$ git config --global user.email "email@example.com"` -- configura el correo electrónico globalmente.
+* **Git** es un **sistema de control de versiones distribuido** que se ejecuta localmente. Su función principal es registrar el historial de cambios del código, permitiéndote volver a versiones anteriores si algo se rompe y/o controlar quién hizo cada modificación.
+  
+* **GitHub** es una **plataforma en la nube** que aloja repositorios remotos. Sirve para guardar un respaldo del proyecto en internet, compartir código y colaborar con otras personas de forma remota.
 
-  > Esto es importante porque los "commits" de Git usan esta información, y es introducida de manera inmutable en los commits que se envían. Sólo se necesita hacer esto UNA vez si se especificas la opción `--global`.
+<br>
 
-- `$ git config --list` -- muestra todas las propiedades que Git ha configurado.
+> [!NOTE]
+> Cuando se trabaja con Git lo que se crea es un REPOSITORIO, un lugar donde se **guardan y administran** nuestros archivos. Hay dos tipos de repositorios: *Locales*, aquellos que se crean de forma “local” en nuestra PC y no necesariamente son compartidos y los *Remotos*, aquellos que se encuentran alojados en algún servidor externo y pueden ser accedido desde cualquier lugar.
 
-&nbsp;
+<br>
+
+## 📂 Configuración inicial
+
+Tras instalar Git, se debe personalizar el entorno. Es necesario hacerlo solamente una vez en la computadora LOCAL y se mantendrán entre actualizaciones.
+
+- **Abrir la terminal** (o Git Bash) en el ordenador e indicar nombre y correo electrónico para asociar la autoría de los cambios.
+  
+  - `$ git config --global user.name "Nombre"` -- para configurar el nombre de usuario globalmente
+  - `$ git config --global user.email "example@email.com"` -- configura el correo electrónico globalmente
+
+    > Es fundamental usar el mismo nombre y correo electrónico asociado a la cuenta de GitHub.
+
+<br>
+
+- **Verificar** que la configuración se guardó correctamente ejecutando:
+
+  ```bash
+  git config user.name
+  git config user.email
+  ```
+
+  Al presionar enter en cada uno, la terminal devolverá el nombre y el correo guardados.
+
+<br>
+
+## 📂 Inicializar el repositorio
+
+Para ubicarnos en la carpeta e inicializar el repositorio hay dos opciones principales:
+
+* **Desde la terminal** con el comando `cd`
+
+  - Abrir la terminal o Git Bash.
+  - Usar el comando `cd` (*Change Directory*) seguido de la ruta de la carpeta a la que se quiere ir. Por ejemplo: *En el Escritorio* `cd Desktop/MiProyecto`.
+  - Se puede verificar en qué carpeta estamos ejecutando `pwd` o revisando la ruta que figura en la consola.
+
+* **Desde VSC** (la forma más práctica)
+
+  - Abrir Visual Studio Code.
+  - En el menú superior, ir a **File > Open Folder** y seleccionar la carpeta del proyecto.
+  - Abrir la terminal integrada yendo al menú superior en **Terminal > New Terminal**.
+  - La terminal se abrirá ubicada automáticamente en la ruta de tu proyecto
+
+<br>
+
+Una vez que la terminal esté ubicada dentro de la carpeta elegida, ejecutá:
+
+```bash
+git init
+```
+
+  Este comando creará la carpeta oculta `.git` e inicializará el repositorio local de forma correcta
+
+
+
+
+## 📂 3
+
+<br>
+
+## 📂 4
+
+<br>
+
+## 📂 5
+
+
+
+
+-----------------------
+
 
 ## **2**. Inicialización y Clonación
 
