@@ -2,9 +2,17 @@
 
 <br>
 
-- [Diferencia: Git vs GitHub](#-diferencia-entre-git-y-github)
-- [Configuración inicial](#-configuración-inicial)
-- [Inicializar el repositorio](#-inicializar-el-repositorio)
+- [📌 Git / GitHub](#-git--github)
+  - [📂 Diferencia entre Git y GitHub](#-diferencia-entre-git-y-github)
+  - [📂 Configuración inicial](#-configuración-inicial)
+  - [📂 Inicialización y Clonación](#-inicialización-y-clonación)
+    - [✧ Inicialización](#-inicialización)
+    - [✧ Clonación](#-clonación)
+  - [📂 Estados del repositorio](#-estados-del-repositorio)
+  - [📂 Añadir archivos al Staging Area](#-añadir-archivos-al-staging-area)
+  - [📂 Confirmar los cambios](#-confirmar-los-cambios)
+  - [**6**. Branches / Ramas](#6-branches--ramas)
+  - [**7**. Repositorios Remotos](#7-repositorios-remotos)
 
 <br>
 
@@ -45,9 +53,11 @@ Tras instalar Git, se debe personalizar el entorno. Es necesario hacerlo solamen
 
 <br>
 
-## 📂 Inicializar el repositorio
+## 📂 Inicialización y Clonación
 
-Para ubicarnos en la carpeta e inicializar el repositorio hay dos opciones principales:
+### ✧ Inicialización
+
+Una vez creada la carpeta LOCAL desde CERO, para ubicarnos en ella e inicializar el repositorio hay dos opciones principales:
 
 * **Desde la terminal** con el comando `cd`
 
@@ -65,6 +75,7 @@ Para ubicarnos en la carpeta e inicializar el repositorio hay dos opciones princ
 <br>
 
 Una vez que la terminal esté ubicada dentro de la carpeta elegida, ejecutar `git init`
+
 <br>
 
 > [!NOTE]
@@ -72,76 +83,100 @@ Una vez que la terminal esté ubicada dentro de la carpeta elegida, ejecutar `gi
 
 <br>
 
-## 📂 3
+### ✧ Clonación
+
+Clonar un repositorio sirve para bajar a la computadora un proyecto que ya existe en GitHub. A diferencia de empezar un proyecto desde cero, el clonado descarga la carpeta completa con sus archivos, todo su historial de commits y deja el proyecto vinculado automáticamente con GitHub.
+
+Para clonar un repositorio:
+
+- Copiar la direccion URL en GitHub.
+- Abrir en la terminal la carpeta destino en la máquina donde se quiera guardar el proyecto.
+- Escribí `git clone` seguido de la URL copiada:
+  
+  ```
+  git clone https://github.com/usuario/nombre-del-repositorio.git
+  ```
+
+- Por ultimo, para empezar a trabajar hay que entrar a la nueva carpeta creada:
+
+  ```
+  cd nombre-del-repositorio
+  ```
 
 <br>
 
-## 📂 4
+## 📂 Estados del repositorio
+
+Para entender cómo se mueve un proyecto en Git hay que conocer las **tres áreas de trabajo** que gestiona:
+
+1. **Working Directory:** Es la carpeta real en el ordenador donde se crea, edita o borran archivos.
+2. **Staging Area:** Espacio intermedio donde se colocan los archivos que ya están listos para la próxima versión.
+3. **Repository:** El directorio interno donde Git almacena de forma permanente todos los *commits* y versiones del proyecto.
 
 <br>
 
-## 📂 5
+Los comandos de inspección permiten saber exactamente qué pasa entre estas áreas.
+
+- `$ git status`  
+  Comprueba el estado de los archivos en la carpeta respecto al ultimo commit (cambios, nuevos/eliminados o en que rama se está). Se utiliza antes de agregar archivos, después de agregarlos para confirmar que están en verde, y antes de hacer un commit o subir cambios.
+
+- `$ git diff`  
+  Muestra exactamente línea por línea qué se modificó, qué se agregó y qué se eliminó entre dos versiones.
+
+  - `git diff` -- compara lo que se modifico en la carpeta de trabajo contra el ultimó commit guardado.
+  - `git diff --staged` -- muestra el detalle exacto de las líneas añadidas o borradas en los archivos que ya están en el área de preparación, para revisarlos justo antes de comitear.
+  - `git diff rama1 rama2` -- se utiliza para comparar dos ramas enteras y ver qué archivos o líneas difieren entre sí antes de unirlas
+
+- `git log`  
+  Muestra la lista histórica de todas los commits guardados en el repositorio con todos los detalles (quién hizo el cambio, cuándo y qué mensaje escribió). Se utiliza cuando es necesario ver qué cambios se hicieron en los últimos días o buscar el código identificador de una versión previa.
+
+  - `git log --oneline` -- muestra el historial compactado en una sola línea por commit.
+  - `git log --graph` -- dibuja las ramas y uniones con asteriscos y líneas en la terminal para ver cómo se bifurcó el desarrollo.
+
+- `git branch`  
+  Muestra la lista de todas las ramas locales existentes y resalta con un asterisco o color en cuál se esta parado. Se utiliza siempre que se quiera cerciorar en qué línea de desarrollo se esta trabajando antes de hacer modificaciones.
+
+<br>
+
+## 📂 Añadir archivos al Staging Area
+
+- `git add`  
+  
+  Al editar o crear archivos, esos cambios solo existen en el disco local. Tras ejecutar `git add`, no se esta creando un commit definitivo ni alterando el historial permanente aun. Lo que hace es **preseleccionar y preparar** de manera provisional qué archivos y líneas exactas van a formar parte del próximo commit.
+  
+  - `git add .` -- el punto (`.`) hace referencia al directorio actual. Toma **todos** los archivos nuevos y modificados del proyecto y los envía juntos al Staging Area.
+  - `git add archivo.extension` -- pasa al Staging Area **únicamente el archivo especificado**. Conviene usarlo cuando se modificaron varios archivos del proyecto pero se quiere guardar un commit atómico que solo contenga los cambios de ese archivo puntual.
+
+<br>
+
+> [!IMPORTANT]
+> Para comprobar lo que va pasando en cada paso se utiliza `git status`. Antes de `git add` los archivos aparecen listados en color **rojo** pero luego de ejecutarlo esos archivos pasan a figurar en color **verde** bajo el apartado *"Changes to be committed"*.
 
 
 
+<br>
+
+## 📂 Confirmar los cambios
+
+Tras el paso anterior, los cambios están preseleccionados y empaquetados para la próxima versión, pero **todavía no forman parte del historial permanente**. Por eso tras el `git add` se debe hacer un "punto de guardado" (*commit*).
+
+- **Guardar la versión localmente**
+  
+  - `git commit -m "descripción"` -- este genera un código único (*Hash*) que identifica de forma irrepetible esa versión. Los cambios se almacenan permanentemente dentro de la carpeta LOCAL oculta `.git`. Y aunque el repositorio en GitHub ya esté creado, este commit **solo existe en LOCAL**.
+
+
+- **Enviar los cambios**
+  
+  - `git push -u origin main` -- en este paso Git comprime y transfiere los objetos y commits a los servidores de GitHub a través de la conexión autenticada (por Token, SSH o navegador).  
+  
+  <br>
+
+  > [!NOTE]
+  > - `-u` -- crea un enlace permanente entre tu rama local actual y la rama correspondiente en GitHub.  
+  > - `origin` -- alias estándar que se le asigna a la URL del repositorio en GitHub. Es para no tener que escribir la dirección web completa cada vez que se suba o baje código.  
+  > - `main` -- Es el **nombre de la rama específica** al que se esta subiendo el commit.
 
 -----------------------
-
-
-## **2**. Inicialización y Clonación
-
-- `$ git init` -- inicializa un nuevo repositorio Git en el directorio LOCAL actual.	
-  
-- `$ git clone` -- COPIA TODO el repositorio tal cual está y se descarga. Se suele utilizar para copias de CERO
-
-      $ git clone URL-repositorio
-  
-  > Primero se debe crear el directorio LOCAL donde se descargará y se abre en la terminal.
-
-&nbsp;
-
-## **3**. Estados del repositorio
-
-- `$ git status` -- comprueba el estado de los archivos en la carpeta (cambios, nuevos o eliminados).
-
-- `$ git diff` -- permite conocer las diferencias entre dos ramas y muestra las diferencias entre sus contenidos.
-
-      $ git diff rama-uno rama-dos
-  
-  > EL ORDEN IMPORTA, en el ejemplo anterior muestra lo que hay en rama-dos y no está en rama-uno. <br/>
-  > Si se realiza al reves se vera lo contrario.
-
-- `$ git log` -- muestra el historial de TODOS los commits del proyecto (quién hizo el cambio, cuándo y qué mensaje escribió)  
-        `$ git log --oneline` -- muestra el historial resumido en una sola línea por commit.
-
-&nbsp;
-
-## **4**. Añadir archivos al Staging Area
-
-> [!NOTE]
-> El Staging Area es un archivo sencillo, generalmente almacenado en el directorio de Git, que recopila información acerca de lo que va a estar presente en la próxima confirmación, listo para ser enviados al repositorio de Git.
-
-- `$ git add` -- agrega de manera PROVISORIA el archivo al repositorio.
-
-   `$ git add archivo.extension` -- agrega el archivo seleccionado  
-   `$ git add .` -- agrega TODOS los archivos aun NO subidos
-
-&nbsp;
-
-## **5**. Confirmar Cambios
-
-Cuando se hacen cambios en los archivos, no se guardan automáticamente en el historial. Por eso tras el `$ git add` se debe hacer un "punto de guardado" (commit).
-
-&nbsp;
-- `$ git commit -m “MENSAJE”` -- agrega de manera DEFINITIVA el archivo al repositorio, mas un mensaje sobre el cambio realizado.
-  
-  > Con esto los cambios quedan guardados en el historial del REPOSITORIO LOCAL, en la propia máquina.
-
-&nbsp;
-> [!IMPORTANT]
-> Para subirlo a un repositorio remoto (GitHub) debemos usar `$ git push` así los cambios se reflejan en el repositorio online.
-
-&nbsp;
 
 ## **6**. Branches / Ramas
 
@@ -212,20 +247,3 @@ git push <nombre-remoto> <rama>	Envía cambios locales al repositorio remoto.
 git pull <nombre-remoto> <rama>	Obtiene los cambios de un repositorio remoto y los fusiona con la rama actual.	
 git fetch <nombre-remoto>	Descarga cambios del remoto sin fusionarlos.	
 git remote -v	Muestra los repositorios remotos configurados.
-
-&nbsp;
-
-## **Referencias**
-
-▶️ [Git Add + Git Commit + Git Push -Todo Code-](https://youtu.be/osO_eYMIKxM?si=a4s96ESawDaCkmCN/)<br/>
-▶️ [Github Access Token -Todo Code-](https://youtu.be/2nzOI-ynXF4?si=-FOlRTch5Bad-bF5)<br/>
-▶️ [Git Clone + Git Pull -Todo Code-](https://youtu.be/IWnW0svZ9JQ?si=OecPx5YavLWl-ScZ)<br/>
-▶️ [Branches (Ramas) -Todo Code-](https://youtu.be/gjKKtQVVCZU?si=lZ7d840yuPmrOns1)<br/>
-▶️ [Diff y Merge / Trabajando con branches -Todo Code-](https://youtu.be/W8rwULnu9nA?si=AfwbtAhCLFcRzoDl)<br/>
-
-&nbsp;
-
-📚 [Listado de comandos de Git](http://codigoelectronica.com/blog/listado-de-comandos-de-git)<br/>
-📚 [Fundamentos de Git](https://git-scm.com/book/es/v2/Fundamentos-de-Git-Obteniendo-un-repositorio-Git)<br/>
-
-&nbsp;
