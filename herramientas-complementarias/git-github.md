@@ -8,11 +8,12 @@
   - [📂 Inicialización y Clonación](#-inicialización-y-clonación)
     - [✧ Inicialización](#-inicialización)
     - [✧ Clonación](#-clonación)
+    - [✧ Actualización (Descargar cambios)](#-actualización-descargar-cambios)
   - [📂 Estados del repositorio](#-estados-del-repositorio)
   - [📂 Añadir archivos al Staging Area](#-añadir-archivos-al-staging-area)
   - [📂 Confirmar los cambios](#-confirmar-los-cambios)
-  - [**6**. Branches / Ramas](#6-branches--ramas)
-  - [**7**. Repositorios Remotos](#7-repositorios-remotos)
+  - [📂 Branches / Ramas](#-branches--ramas)
+    - [✧ Comandos esenciales](#-comandos-esenciales)
 
 <br>
 
@@ -85,7 +86,7 @@ Una vez que la terminal esté ubicada dentro de la carpeta elegida, ejecutar `gi
 
 ### ✧ Clonación
 
-Clonar un repositorio sirve para bajar a la computadora un proyecto que ya existe en GitHub. A diferencia de empezar un proyecto desde cero, el clonado descarga la carpeta completa con sus archivos, todo su historial de commits y deja el proyecto vinculado automáticamente con GitHub.
+Clonar un repositorio sirve para bajar a la computadora un PROYECTO COMPLETO que ya existe en GitHub. A diferencia de empezar un proyecto desde cero, el clonado descarga la carpeta completa con sus archivos, todo su historial de commits y deja el proyecto vinculado automáticamente con GitHub.
 
 Para clonar un repositorio:
 
@@ -102,6 +103,23 @@ Para clonar un repositorio:
   ```
   cd nombre-del-repositorio
   ```
+
+<br>
+
+### ✧ Actualización (Descargar cambios)
+
+A diferencia del anterior, `git pull` se utiliza en el día a día para **descargar e incorporar únicamente las novedades o cambios recientes** que otros colaboradores (o uno desde otra máquina) hayan subido al repositorio remoto en GitHub.
+
+```bash
+git pull origin nombre-de-la-rama
+```
+
+Se debe poner el nombre de la rama específica a descargar e integrar, NO descarga el repositorio completo. **Descarga únicamente cambios puntuales de esa rama**.
+
+<br>
+
+> [!TIP]
+> Es muy recomendable ejecutar `git pull` siempre al **iniciar la jornada de trabajo** o **antes de empezar una nueva funcionalidad**, para asegurarte de que el código local esté al día con la última versión de GitHub y evitar conflictos al momento de subir tus cambios.
 
 <br>
 
@@ -169,81 +187,54 @@ Tras el paso anterior, los cambios están preseleccionados y empaquetados para l
   
   - `git push -u origin main` -- en este paso Git comprime y transfiere los objetos y commits a los servidores de GitHub a través de la conexión autenticada (por Token, SSH o navegador).  
   
-  <br>
+<br>
 
-  > [!NOTE]
-  > - `-u` -- crea un enlace permanente entre tu rama local actual y la rama correspondiente en GitHub.  
-  > - `origin` -- alias estándar que se le asigna a la URL del repositorio en GitHub. Es para no tener que escribir la dirección web completa cada vez que se suba o baje código.  
-  > - `main` -- Es el **nombre de la rama específica** al que se esta subiendo el commit.
+> [!NOTE]
+> - `-u` -- crea un enlace permanente entre tu rama local actual y la rama correspondiente en GitHub.  
+> - `origin` -- alias estándar que se le asigna a la URL del repositorio en GitHub. Es para no tener que escribir la dirección web completa cada vez que se suba o baje código.  
+> - `main` -- Es el **nombre de la rama específica** al que se esta subiendo el commit.
 
------------------------
+<br>
 
-## **6**. Branches / Ramas
+## 📂 Branches / Ramas
 
-Las ramas se pueden definir como “punteros” para cada uno de los cambios o versiones que se quieren armar en el proyecto o desarrollo.<br/>
-Cada RAMA representa una LÍNEA INDEPENDIENTE de desarrollo.
+Las ramas , internamente, es simplemente un **puntero móvil** (una pequeña referencia) que apunta al último commit realizado en esa línea de tiempo. 
 
-Para realizar este manejo de versiones Git parte de una rama principal `main/master`, de la cual se desprenden todas las demás ramas que se pueden crear.
+Cada RAMA representa una LÍNEA INDEPENDIENTE de desarrollo. Esto permiten aislar trabajo (nuevas funcionalidades, pruebas o corrección de bugs) sin alterar ni romper la rama principal (`main` o `master`). Si algo sale mal en esa rama, se puede descartar o borrar sin afectar tu versión estable.
 
-&nbsp;
+<br>
+
 ![Branch](https://github.com/user-attachments/assets/1635b168-0839-4e08-8eb0-e8550441dc94)
 
-&nbsp;
-- `$ git branch` -- permite conocer en qué rama nos encontramos ubicados.
 
-- `$ git branch nueva-rama` -- permite CREAR una nueva rama.
+<br>
 
-- `$ git checkout nombre-rama` -- permite CAMBIAR a una rama existente (Git antiguo).
+### ✧ Comandos esenciales
 
-- `$ git switch nombre-rama` -- permite CAMBIAR a una rama existente (Git moderno).
-  
-- `$ git merge` -- permite UNIFICAR dos ramas en una sola, para que ambas tengan los mismos archivos sin diferencias.
+- `$ git branch` -- lista todas las ramas locales y resalta con un asterisco (`*`) y color la rama en la que se encuentra POSICIONADO actualmente.
 
-      $ git merge rama-origen rama-destino
-  
-  > Se debe estar en la rama a ACTUALIZAR para unificar.
+- `$ git branch nueva-rama` -- permite CREAR una nueva rama. Pero **no cambia automáticamente a ella** (el `HEAD` sigue en la rama actual).
 
-- `$ git branch -m nombre-rama-ACTUAL nombre-rama-NUEVA` -- permite cambiar el NOMBRE de una rama.
+- `$ git switch nombre-rama` -- permite CAMBIAR a una rama existente de forma limpia y segura (Git moderno).
+
+- `git branch -m nombre-actual nombre-nuevo` -- permite cambiar el NOMBRE de una rama.
 
 - `$ git branch -d rama-a-eliminar` -- permite ELIMINAR una rama creada.
 
-   > En caso de estar ubicados en la misma rama a eliminar, primero se debe cambiar a otra rama porque sino no lo permite.
+   > **Regla:** No es posible borrar la rama en la que se esta parado actualmente. Primero hay que cambiarse a otra y luego ejecutar el comando.
 
-&nbsp;
+- `$ git merge rama-a-traer` -- permite UNIFICAR dos ramas en una sola.
+  
+<br>
 
-## **7**. Repositorios Remotos
-
-........... FALTAN  !!!!!!!! ⚠️⚠️⚠️⚠️
-
-&nbsp;
-- `$ git push` -- permite PASAR el archivo al repositorio REMOTO.
-
-      $ git push origin rama-a-pushear
-
-   `origin` es el nombre del repositorio remoto por defecto<br/>
-   `main` es por defecto el nombre de la rama (tambien podría ser master)
-
-&nbsp;
-> Hay que posicionarse dentro de la carpeta / directorio del proyecto
-
-- `$ git pull` -- COPIA solo cambios puntuales en una rama puntual, para no copiar todo de nuevo.
-
-      $ git pull origin rama-a-pullear
-
-   `origin` es el nombre del repositorio remoto por defecto<br/>
-   `main` es por defecto el nombre de la rama (tambien podría ser master)
-
-&nbsp;
-> [!NOTE]
-> `origin` es simplemente un alias o apodo para la URL del repositorio remoto de donde se clona el proyecto.<br/>
-
-> Es solo un nombre por convención que Git lo crea automáticamente. Se puede cambiar, pero la mayoría lo deja así por simplicidad.
-
-
-
-
-git remote add <nombre> <url>	Añade un repositorio remoto.	
-git push <nombre-remoto> <rama>	Envía cambios locales al repositorio remoto.	
-git pull <nombre-remoto> <rama>	Obtiene los cambios de un repositorio remoto y los fusiona con la rama actual.	
-git fetch <nombre-remoto>	Descarga cambios del remoto sin fusionarlos.	
-git remote -v	Muestra los repositorios remotos configurados.
+> [!IMPORTANT]
+> Para unir dos ramas, el flujo se basa en dos pasos obligatorios:
+> 1. **Pararse en la rama de destino**, la que va a recibir los cambios, habitualmente `main`:  
+>
+>    `git switch main`
+>
+> 2. **Ejecutar el merge indicando la rama de origen**, la que contiene las novedades:
+>
+>    `git merge nueva-rama`
+>
+> 3. Git tomará todo el historial de `nueva-rama` y lo incorporará dentro de `main`.
