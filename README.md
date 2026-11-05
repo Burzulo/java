@@ -61,10 +61,10 @@
   - Creación de Excepciones Personalizadas
 
 - ❌ **Herramientas Esenciales
-
-Terminal: cd, ls, mkdir
-Git: init, add, commit, push, pull, branch, merge
-GitHub: creación de repositorios, pull requests, clonación
+  - **GitHub** [⇒](./herramientas-complementarias/git-github.md)
+    - Inicialización, Clonación y Actualización
+    - Estados del repositorio, Añadir archivos, Confirmar cambios
+    - Branch / Rama
 
 
 

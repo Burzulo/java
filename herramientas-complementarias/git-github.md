@@ -5,14 +5,14 @@
 - [📌 Git / GitHub](#-git--github)
   - [📂 Diferencia entre Git y GitHub](#-diferencia-entre-git-y-github)
   - [📂 Configuración inicial](#-configuración-inicial)
-  - [📂 Inicialización y Clonación](#-inicialización-y-clonación)
+  - [📂 Inicialización, Clonación y Actualización](#-inicialización-clonación-y-actualización)
     - [✧ Inicialización](#-inicialización)
     - [✧ Clonación](#-clonación)
     - [✧ Actualización (Descargar cambios)](#-actualización-descargar-cambios)
   - [📂 Estados del repositorio](#-estados-del-repositorio)
   - [📂 Añadir archivos al Staging Area](#-añadir-archivos-al-staging-area)
   - [📂 Confirmar los cambios](#-confirmar-los-cambios)
-  - [📂 Branches / Ramas](#-branches--ramas)
+  - [📂 Branch / Rama](#-branch--rama)
     - [✧ Comandos esenciales](#-comandos-esenciales)
 
 <br>
@@ -54,7 +54,7 @@ Tras instalar Git, se debe personalizar el entorno. Es necesario hacerlo solamen
 
 <br>
 
-## 📂 Inicialización y Clonación
+## 📂 Inicialización, Clonación y Actualización
 
 ### ✧ Inicialización
 
@@ -196,7 +196,7 @@ Tras el paso anterior, los cambios están preseleccionados y empaquetados para l
 
 <br>
 
-## 📂 Branches / Ramas
+## 📂 Branch / Rama
 
 Las ramas , internamente, es simplemente un **puntero móvil** (una pequeña referencia) que apunta al último commit realizado en esa línea de tiempo. 
 
